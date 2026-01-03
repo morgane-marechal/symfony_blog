@@ -1,7 +1,7 @@
 # Collaborative Blog 
 
-![Symfony](https://img.shields.io/badge/Symfony-5.8-black?logo=symfony)
-![Docker](https://img.shields.io/badge/Docker-20.10-blue?logo=docker)
+![Symfony](https://img.shields.io/badge/Symfony-8.0.3-black?logo=symfony)
+![Docker](https://img.shields.io/badge/Docker-28.1.1-blue?logo=docker)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-blue?logo=postgresql)
 ![Figma](https://img.shields.io/badge/Figma-Design-purple?logo=figma)
 
