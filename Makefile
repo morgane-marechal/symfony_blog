@@ -22,3 +22,6 @@ migration:
 
 migrate:
 	docker exec -it blog-php-1 php bin/console doctrine:migrations:migrate
+
+fixtures:
+	docker exec -it blog-php-1 php bin/console doctrine:fixtures:load --no-interaction

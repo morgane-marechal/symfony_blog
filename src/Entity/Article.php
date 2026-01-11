@@ -15,16 +15,21 @@ class Article
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Title = null;
+    private ?string $title = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $Description = null;
+    private ?string $description = null;
 
-    #[ORM\ManyToOne(inversedBy: 'articles')]
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'articles')]
     private ?User $author = null;
+
 
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
+
+
+    #[ORM\Column(type: 'boolean')]
+    private bool $isPublished = true; 
 
     public function getId(): ?int
     {
@@ -33,24 +38,24 @@ class Article
 
     public function getTitle(): ?string
     {
-        return $this->Title;
+        return $this->title;
     }
 
-    public function setTitle(string $Title): static
+    public function setTitle(string $title): static
     {
-        $this->Title = $Title;
+        $this->title = $title;
 
         return $this;
     }
 
     public function getDescription(): ?string
     {
-        return $this->Description;
+        return $this->description;
     }
 
-    public function setDescription(string $Description): static
+    public function setDescription(string $description): static
     {
-        $this->Description = $Description;
+        $this->description = $description;
 
         return $this;
     }
@@ -76,6 +81,18 @@ class Article
     {
         $this->createdAt = $createdAt;
 
+        return $this;
+    }
+
+
+    public function isPublished(): bool
+    {
+        return $this->isPublished;
+    }
+
+    public function setIsPublished(bool $isPublished): self
+    {
+        $this->isPublished = $isPublished;
         return $this;
     }
 }
