@@ -8,12 +8,10 @@ use Symfony\Component\Routing\Attribute\Route;
 use App\Repository\ArticleRepository;
 use App\Repository\UserRepository;
 
-
-final class HomeController extends AbstractController
+final class ArticleController extends AbstractController
 {
-    #[Route('/home', name: 'app_home')]
+    #[Route('/article', name: 'app_article')]
     public function index(ArticleRepository $articleRepository): Response
-
     {
         $articles = $articleRepository->findBy(
             [],
@@ -21,9 +19,8 @@ final class HomeController extends AbstractController
         );
 
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
+            'controller_name' => 'ArticleController',
             'articles' => $articles,
         ]);
     }
 }
-
