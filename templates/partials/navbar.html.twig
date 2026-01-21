@@ -1,0 +1,27 @@
+<nav class="navbar">
+    <ul class="navbar-menu">
+        <li>
+            <a href="{{ path('app_home') }}">Accueil</a>
+        </li>
+
+
+
+        {% if app.user %}
+            <li>
+                <span>👋 {{ app.user.login }}</span>
+            </li>
+
+            <li>
+                <a href="{{ path('app_logout') }}">Déconnexion</a>
+            </li>
+        {% else %}
+            <li>
+                <a href="{{ path('app_login') }}">Connexion</a>
+            </li>
+
+            <li>
+                <a href="{{ path('app_register') }}">Inscription</a>
+            </li>
+        {% endif %}
+    </ul>
+</nav>
