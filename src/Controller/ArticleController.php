@@ -23,4 +23,27 @@ final class ArticleController extends AbstractController
             'articles' => $articles,
         ]);
     }
+
+    #[Route('/myarticle', name: 'app_myarticle')]
+    public function myarticle(ArticleRepository $articleRepository): Response
+    {
+        $user = $this->getUser();
+        if (!$user) {
+            throw $this->createAccessDeniedException();
+        }
+        $articles = $articleRepository->findBy(
+            ['author' => $user],
+            ['createdAt' => 'DESC']
+        );
+
+        // return $this->render('home/index.html.twig', [
+        //     'controller_name' => 'ArticleController',
+        //     'articles' => $articles,
+        // ]);
+
+        return $this->render('article/my_articles.html.twig', [
+            'controller_name' => 'ArticleController',
+            'articles' => $articles,
+        ]);
+    }
 }
